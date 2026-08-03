@@ -1,14 +1,14 @@
 "use client";
 
 import React from 'react'
-import { Bold, LuicideIcon, Italic, UndoIcon, UnderlineIcon } from 'lucide-react';
+import { Bold, LucideIcon, Italic, UndoIcon, UnderlineIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useEditorStore } from '@/store/use-editor';
 
 interface toolbarButtonProps {
   onClick?: () => void;
   isActive?: boolean;
-  icon?: LuicideIcon;
+  icon?: LucideIcon;
 }
 
 const ToolbarButton = ({onClick, isActive, icon: Icon}: toolbarButtonProps) => {
@@ -25,7 +25,7 @@ const Toolbar = () => {
 
     const sections : {
         label: string;
-        icon: LuicideIcon;
+        icon: LucideIcon;
         onClick: () => void;
         isActive?: boolean;
     } [][] = [[
