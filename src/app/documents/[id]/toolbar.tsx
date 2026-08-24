@@ -1,12 +1,14 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
 import { SketchPicker, type ColorResult } from 'react-color';
-import { Bold, LucideIcon, Italic, UndoIcon, UnderlineIcon, RedoIcon, PrinterIcon, SpellCheck, MessagesSquare, MessageSquarePlusIcon, ListTodoIcon, RemoveFormattingIcon, ChevronDown, HighlighterIcon } from 'lucide-react';
+import { Bold, LucideIcon, Italic, UndoIcon, UnderlineIcon, RedoIcon, PrinterIcon, SpellCheck, MessagesSquare, MessageSquarePlusIcon, ListTodoIcon, RemoveFormattingIcon, ChevronDown, HighlighterIcon, Link2Icon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useEditorStore } from '@/store/use-editor';
 import { Separator } from '@/components/ui/separator';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button';
 
 interface toolbarButtonProps {
   onClick?: () => void;
@@ -20,6 +22,38 @@ const ToolbarButton = ({onClick, isActive, icon: Icon}: toolbarButtonProps) => {
         {Icon && <Icon size={18} />}
     </button>
   )
+}
+
+const LinkButton = () => {
+  const { editor } = useEditorStore();
+  const [value, setValue] = React.useState("");
+
+  const OnChange = (href: string) => {
+    editor?.chain().focus().extendMarkRange('link').setLink({ href }).run();
+    setValue("");
+  };
+
+  return (
+    <DropdownMenu onOpenChange={(open) => {
+      if (open) {
+        setValue(editor?.getAttributes('link').href || "");
+      }
+    }}>
+      <DropdownMenuTrigger className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200 outline-none">
+          <Link2Icon size={18} />
+        </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2 flex gap-x-1 items-center justify-center mt-1 rounded-sm bg-neutral-100/40">
+        <Input
+          placeholder="http://example.com"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => e.stopPropagation()}
+        />
+        <Button onClick={() => OnChange(value)}>Apply</Button>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+
 }
 
 const HighlightButton = () => {
@@ -252,9 +286,7 @@ const Toolbar = () => {
         <TextColorButton />
         <HighlightButton />
         <Separator orientation='vertical' className='h-6 w-0.5 bg-neutral-300 mx-1' />
-        {
-          // Link
-        }
+        <LinkButton />
         {
           // Image
         }
