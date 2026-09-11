@@ -10,6 +10,7 @@ import { TableKit } from '@tiptap/extension-table'
 import { TextStyle, Color } from '@tiptap/extension-text-style'
 import { FontFamily } from '@tiptap/extension-font-family'
 import { useEditorStore } from "@/store/use-editor";
+import { FontSize } from "@/extensions/font-size";
 
 const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -40,6 +41,7 @@ const Editor = () => {
     },
     extensions: [
         StarterKit,
+        FontSize,
         TaskList,
         TaskItem.configure({ nested: true}),
         Image.configure({resize: { enabled: true, alwaysPreserveAspectRatio: true,},}),
