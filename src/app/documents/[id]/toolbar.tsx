@@ -187,7 +187,7 @@ const ImageButton = () => {
     }
   };
 
-  const OnUploadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const OnUploadImage = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
