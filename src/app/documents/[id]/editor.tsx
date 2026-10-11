@@ -86,11 +86,13 @@ const Editor = () => {
   });
 
   return (
-  <div className="min-h-screen overflow-x-auto bg-[#F9FBFD] px-4">
-    <Ruler />
-    <div className="flex justify-center py-6">
-      <EditorContent editor={editor} />
-    </div>
+  <div className="size-full overflow-x-auto bg-white/50 px-4 print:px-0 print:bg-white print:overflow-x-visible">
+    <div className="flex flex-col items-center w-full mx-auto print:w-full print:min-w-0">
+        
+        <Ruler />
+        <EditorContent editor={editor} />
+        
+      </div>
   </div>
 );
 };
