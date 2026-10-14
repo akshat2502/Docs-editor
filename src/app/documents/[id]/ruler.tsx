@@ -28,6 +28,7 @@ const Marker = ({ position, isLeft, isDragging, onMouseDown, onDoubleClick }: Ma
 }
 
 const Ruler = () => {
+  
   const [leftMargin, setLeftMargin] = useState(96);
   const [rightMargin, setRightMargin] = useState(96);
 
