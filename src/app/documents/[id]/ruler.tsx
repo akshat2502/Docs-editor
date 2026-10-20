@@ -1,5 +1,6 @@
+import { useEditorStore } from "@/store/use-editor";
 import { ChevronDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const markers = Array.from({ length: 83 }, (_, i) => i);
 
@@ -28,7 +29,7 @@ const Marker = ({ position, isLeft, isDragging, onMouseDown, onDoubleClick }: Ma
 }
 
 const Ruler = () => {
-  
+
   const [leftMargin, setLeftMargin] = useState(96);
   const [rightMargin, setRightMargin] = useState(96);
 
@@ -79,6 +80,15 @@ const Ruler = () => {
   const handleRightDoubleClick = () => {
     setRightMargin(96);
   }
+
+  const { editor } = useEditorStore();
+
+  useEffect(() => {
+    if (editor) {
+      editor.view.dom.style.paddingLeft = `${leftMargin}px`;
+      editor.view.dom.style.paddingRight = `${rightMargin}px`;
+    }
+  }, [editor, leftMargin, rightMargin]);
 
   return ( 
     <div 
