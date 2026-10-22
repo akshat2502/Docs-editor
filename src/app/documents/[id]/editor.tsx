@@ -67,22 +67,6 @@ const Editor = () => {
         "focus:outline-none w-[816px] min-h-[1054px] bg-white border border-[#C7C7C7] shadow-md px-14 py-10 cursor-text print:border-0 print:shadow-none print:m-0",
       },
     },
-    content: `
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th colspan="3">Description</th>
-            </tr>
-            <tr>
-              <td>Cyndi Lauper</td>
-              <td>Singer</td>
-              <td>Songwriter</td>
-              <td>Actress</td>
-            </tr>
-          </tbody>
-        </table>
-      `,
   });
 
   return (
