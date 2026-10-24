@@ -49,8 +49,8 @@ const Editor = () => {
         TaskList,
         TaskItem.configure({ nested: true}),
         Image.configure({resize: { enabled: true, alwaysPreserveAspectRatio: true,},}),
-        Dropcursor,
-        Gapcursor,
+        // Dropcursor,
+        // Gapcursor,
         TableKit.configure({
         table: { resizable: true },
       }),
