@@ -1,15 +1,9 @@
-import React from 'react'
-import Link from "next/link";
+import Image from "next/image";
 
-const editorPage = () => {
+export default function Home() {
   return (
     <div>
-      <h1 className="text-2xl font-bold">Editor Page</h1>
-      <p>And to create a new document, click <Link href="/documents/id"><span className="text-blue-500 underline">here</span></Link></p>
+      Document Page
     </div>
-  )
+  );
 }
-
-export default editorPage;
-
-
