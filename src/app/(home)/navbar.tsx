@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import SearchInput from './search-input';
+import { Suspense } from 'react';
 
 const NavBar = ()=> {
   return (
@@ -11,7 +12,9 @@ const NavBar = ()=> {
             </Link>
             <h3 className='text-xl'>Research Docs</h3>
         </div>
-        <SearchInput />
+        <Suspense>
+            <SearchInput />
+        </Suspense>
         <div />
     </div>
   )
