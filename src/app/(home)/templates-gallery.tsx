@@ -33,7 +33,7 @@ const TemplatesGallery = () => {
                                 <button
                                     disabled={isCreating}
                                     onClick={()=>{}}
-                                    className="size-full aspect-[3/4] hover:border-blue-500 rounded-md border border-neutral-300 hover:bg-blue-50 transition bg-white flex flex-col items-center justify-center relative overflow-hidden shadow-sm"
+                                    className="size-full aspect-[3/4] hover:border-blue-600 rounded-md border border-neutral-300 hover:bg-blue-50 transition bg-white flex flex-col items-center justify-center relative overflow-hidden shadow-sm"
                                     style={{
                                         backgroundImage: `url(${template.imageUrl})`,
                                         backgroundSize: 'cover',
